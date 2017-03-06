@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.JFrame;
 
 public class SecurityDialog extends JDialog{
 	// Declare Components of our JDialog...
@@ -20,7 +19,7 @@ public class SecurityDialog extends JDialog{
    private JButton jbtOK, jbtCancel;
 
    private String userNameEntered, passwordEntered;
-	private final String requiredPassword = "LetMeIn";
+	private final String REQUIREDPASSWORD = "pramerica";
 
    public SecurityDialog(){
 	   // Constructor - SetLayout & Add Components here...	
@@ -44,46 +43,13 @@ public class SecurityDialog extends JDialog{
       add(jpLabels, BorderLayout.WEST);
       add(jpTextFields, BorderLayout.CENTER);
       add(jpButtons, BorderLayout.SOUTH);
-
-		// Add an ANONYMOUS LISTENER CLASS to jbtOK
-      jbtOK.addActionListener(new ActionListener(){
-         public void actionPerformed(ActionEvent e){
-				// getText() in jtfUsername and jtfPassword
-            userNameEntered = jtfUsername.getText();
-            passwordEntered = new String(jtfPassword.getPassword());
-				if(passwordEntered.equals(requiredPassword)){
-					// CONSTRUCT a PizzaMenu object called frame, and display it
-					/*PizzaMenu frame = new PizzaMenu();
-			      frame.pack();
-			      frame.setTitle("PIZZA MENU");
-			      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			      frame.setLocationRelativeTo(null); // Center the frame
-			      frame.setVisible(true);*/
-               System.out.print("OK");
-               
-					// And dispose() of this JDialog (SecurityDialog)
- 	            dispose();
-				}
-				else{
-					JOptionPane.showMessageDialog(null,"INCORRECT PASSWORD ENTERED",
-															"PASSWORD ERROR",JOptionPane.ERROR_MESSAGE);
-				}
-			}
-		});		
-
-		// Add an ANONYMOUS LISTENER CLASS to jbtCancel
-      jbtCancel.addActionListener(new ActionListener(){
-         public void actionPerformed(ActionEvent e){
-				System.out.println("CANCEL CLICKED!");				
-			}
-		});				
    }
 
-   public static void main(String[] args){
+   public static void main(String[] args) {
 		// CONSTRUCT a SecurityDialog object called dialog
       SecurityDialog dialog = new SecurityDialog();
 
-		dialog.setTitle("Pizza Security Screen");
+		dialog.setTitle("Add Bonus Security Screen");
 		dialog.pack();	
 		// Add the DISPOSE_ON_CLOSE operation to dialog
       dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
